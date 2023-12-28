@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="fragments/main_template :: main_header(~{::title}, ~{}, ~{}) ">
+    <title>Add Student | Bani Saad Tuition System</title>
+</head>
+<body>
+<div class="container" th:replace="fragments/main_template :: topMenu"></div>
+
+<!--Content-->
+<div class="container my-5">
+    <div class="row">
+        <div class="col">
+            <form th:action="@{/student/add}" th:object="${student}" method="post" class="my-3 p-3 border">
+
+                <p class="bd-title fs-2">Add Student</p>
+                <hr/>
+
+                <input th:replace="~{fragments/input_field_text :: input ('Full Name', 'fullName', true)}" />
+
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input th:field="*{gender}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="M" checked required>
+                            <label class="form-check-label" for="gridRadios1">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input th:field="*{gender}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="F">
+                            <label class="form-check-label" for="gridRadios2">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <input th:replace="~{fragments/input_field_text :: input ('Registration Year', 'registrationYear', true)}" />
+                <input th:replace="~{fragments/input_field_text :: input ('Birth Place', 'birthPlace', true)}" />
+                <input th:replace="~{fragments/input_field_date :: input ('Birth Date', 'birthDate', true)}" />
+
+                <button type="submit" class="btn btn-primary">Add Student</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--End Content-->
+
+<div th:replace="fragments/main_template :: js(~{})"></div>
+</body>
+</html>

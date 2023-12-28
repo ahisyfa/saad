@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="fragments/main_template :: main_header(~{::title}, ~{}, ~{}) ">
+    <title>Pay Tuition | Bani Saad Tuition System</title>
+</head>
+<body>
+<div class="container" th:replace="fragments/main_template :: topMenu"></div>
+
+<!--Content-->
+<div class="container my-5">
+    <div class="row">
+        <div class="col">
+            <form th:action="@{/tuition/{studentId}(studentId=${student.id})}" th:object="${tuition}" method="post" class="my-3 p-3 border">
+                <p class="bd-title fs-2">Pay Tuition</p>
+                <hr/>
+
+                <div class="row mb-3">
+                    <label for="studentId" class="col-sm-2 col-form-label">NIS</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" th:field="*{student.id}" th:classappend="${#fields.hasErrors('student.id')} ? 'is-invalid'" readonly autocomplete="off" required/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="fullName" class="col-sm-2 col-form-label">Full Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="fullName" th:field="*{student.fullName}"  disabled>
+                    </div>
+                </div>
+
+                <input th:replace="~{fragments/input_field_date :: input ('Payment Date', 'paymentDate', true)}" />
+
+                <input th:replace="~{fragments/input_field_text :: input ('Period', 'period', true)}" />
+
+                <input th:replace="~{fragments/input_field_number :: input ('Amount', 'amount', true)}" />
+
+                <button type="submit" class="btn btn-primary">Pay Tuition</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--End Content-->
+
+<div th:replace="fragments/main_template :: js(~{})"></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="fragments/main_template :: main_header(~{::title}, ~{}, ~{}) ">
+    <title>Bani Saad Tuition System</title>
+</head>
+<body class="d-flex flex-column h-100">
+<div class="container" th:replace="fragments/main_template :: topMenu"></div>
+
+<!--Content-->
+<main>
+<div class="container py-4">
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                <h2>Export Tuition Report by Period</h2>
+
+                <form th:action="@{/tuition/export/period}" method="get" target="_blank" class="py-4">
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="period" class="form-label">Period</label>
+                            <input type="text" class="form-control" id="period" name="period" placeholder="Example for January 2023: 2023-01" required>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-md mt-3" type="submit">Export</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                <h2>Export Tuition Report by Date Range</h2>
+
+                <form th:action="@{/tuition/export/range}" method="get" target="_blank" class="py-4">
+                    <div class="row">
+                        <div class="col">
+                            <label for="start" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="start" name="start" placeholder="Start Date" aria-label="Start Date" required>
+                        </div>
+                        <div class="col">
+                            <label for="end" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end" name="end" placeholder="End Date" aria-label="End Date" required>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-md mt-3" type="submit">Export</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</main>
+<!--End Content-->
+
+<footer class="container" th:replace="fragments/main_template :: footer"></footer>
+<div th:replace="fragments/main_template :: js(~{})"></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="main_header(title, links, template)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title th:unless="${title}" th:replace="${title}">>Bani Saad Tuition System</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/favicon/apple-touch-icon.png}" sizes="180x180">
+    <link rel="icon"             th:href="@{/favicon/favicon-32x32.png}" sizes="32x32" type="image/png">
+    <link rel="icon"             th:href="@{/favicon/favicon-16x16.png}" sizes="16x16" type="image/png">
+    <link rel="manifest"         th:href="@{/favicon/site.webmanifest}">
+    <link rel="mask-icon"        th:href="@{/favicon/android-chrome-192x192.png}" color="#712cf9">
+    <link rel="icon"             th:href="@{/favicon/favicon.ico}" type="image/x-icon">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <th:block th:replace="${links}"/>
+</head>
+<body>
+<div class="container" th:fragment="topMenu">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img th:src="@{/favicon/apple-touch-icon.png}" style="height: 70px; width:70px" class="" alt="Logo"> &nbsp;&nbsp;&nbsp;
+            <span class="fs-4">Bani Saad</span>
+        </a>
+
+        <ul class="nav nav-pills d-flex flex-wrap justify-content-center">
+            <li class="nav-item"><a th:href="@{/}"        class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().matches('/')          ? 'active':''}">Home</a></li>
+            <li class="nav-item"><a th:href="@{/student}" class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().matches('/student.*') ? 'active':''}">Student</a></li>
+            <li class="nav-item"><a th:href="@{/tuition}" class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().matches('/tuition.*') ? 'active':''}">Tuition</a></li>
+
+            <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
+        </ul>
+    </header>
+</div>
+
+<footer class="footer mt-auto py-3 bg-body-tertiary" th:fragment="footer">
+    <div class="container">
+        <span class="text-body-secondary">Bani Saad Tuition System &copy; [[${#dates.format(#dates.createNow(), 'yyyy')}]] </span>
+    </div>
+</footer>
+<div th:fragment="js(script)" th:remove="tag">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<th:block th:replace="${script}" />
+</div>
+
+</body>
+</html>

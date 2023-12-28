@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="fragments/main_template :: main_header(~{::title}, ~{}, ~{}) ">
+    <title>Bani Saad Tuition System</title>
+</head>
+<body>
+<div class="container" th:replace="fragments/main_template :: topMenu"></div>
+
+<!--Content-->
+<div class="p-5 text-center bg-body-tertiary rounded-3">
+    <h1 class="text-body-emphasis red">Uups something went wrong...</h1>
+    <p class="lead">
+        <b>Exception:</b> <span th:text="${exception}">Exception</span>
+        <br>
+        <b>URL:</b> <span th:text="${url}">Exception</span>
+    </p>
+</div>
+<!--End Content-->
+
+<div th:replace="fragments/main_template :: js(~{})"></div>
+</body>
+</html>
