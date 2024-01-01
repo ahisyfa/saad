@@ -2,7 +2,7 @@ package com.github.ahisyfa.saad.saad.entity.converter;
 
 import org.springframework.util.StringUtils;
 
-import javax.persistence.AttributeConverter;
+import jakarta.persistence.AttributeConverter;
 import java.time.YearMonth;
 
 /**

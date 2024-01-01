@@ -8,9 +8,10 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.draw.LineSeparator;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.util.CollectionUtils;
 
-import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.List;
 

@@ -3,7 +3,8 @@ package com.github.ahisyfa.saad.saad.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.datetime.standard.DateTimeFormatterRegistrar;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 
 /**
  * DateTimeFormatConfiguration
@@ -12,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @version $Id: DateTimeFormatConfiguration.java, v 0.1 2023-07-22  20.48 Ahmad Isyfalana Amin Exp $
  */
 @Configuration
-public class DateTimeFormatConfiguration extends WebMvcConfigurerAdapter {
+public class DateTimeFormatConfiguration implements WebMvcConfigurer {
 
     /**
      * Used for handle this error

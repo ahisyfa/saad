@@ -36,9 +36,9 @@
         </a>
 
         <ul class="nav nav-pills d-flex flex-wrap justify-content-center">
-            <li class="nav-item"><a th:href="@{/}"        class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().matches('/')          ? 'active':''}">Home</a></li>
-            <li class="nav-item"><a th:href="@{/student}" class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().matches('/student.*') ? 'active':''}">Student</a></li>
-            <li class="nav-item"><a th:href="@{/tuition}" class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().matches('/tuition.*') ? 'active':''}">Tuition</a></li>
+            <li class="nav-item"><a th:href="@{/}"        class="nav-link" th:classappend="${servletPath.matches('/')          ? 'active':''}">Home</a></li>
+            <li class="nav-item"><a th:href="@{/student}" class="nav-link" th:classappend="${servletPath.matches('/student.*') ? 'active':''}">Student</a></li>
+            <li class="nav-item"><a th:href="@{/tuition}" class="nav-link" th:classappend="${servletPath.matches('/tuition.*') ? 'active':''}">Tuition</a></li>
 
             <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
         </ul>

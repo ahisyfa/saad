@@ -1,13 +1,15 @@
 package com.github.ahisyfa.saad.saad.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
+
 
 /**
  * GlobalControllerExceptionHandler
@@ -47,6 +49,11 @@ public class GlobalControllerExceptionHandler {
         mav.addObject("url", req.getRequestURL());
         mav.setViewName(DEFAULT_ERROR_VIEW);
         return mav;
+    }
+
+    @ModelAttribute("servletPath")
+    String getRequestServletPath(HttpServletRequest request) {
+        return request.getServletPath();
     }
 
 
