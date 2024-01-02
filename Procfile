@@ -1,1 +1,1 @@
-web java -Dserver.port=$PORT - $JAVA_OPTS -jar target/saad-1.0.0.jar --spring.profiles.active=prod
+web java -Dserver.port=$PORT $JAVA_OPTS -jar target/saad-1.0.0.jar --spring.profiles.active=prod
