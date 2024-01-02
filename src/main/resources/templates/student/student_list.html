@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
-<head th:replace="fragments/main_template :: main_header(~{::title}, ~{}, ~{}) ">
+<head th:replace="~{fragments/main_template :: main_header(~{::title}, ~{}, ~{}) }">
     <title>Student | Bani Saad Tuition System</title>
 </head>
 <body>
-<div class="container" th:replace="fragments/main_template :: topMenu"></div>
+<div class="container" th:replace="~{fragments/main_template :: topMenu}"></div>
 
 <!--Content-->
 <div class="container">
@@ -45,6 +45,6 @@
 </div>
 <!--End Content-->
 
-<div th:replace="fragments/main_template :: js(~{})"></div>
+<div th:replace="~{fragments/main_template :: js(~{})}"></div>
 </body>
 </html>
