@@ -35,7 +35,7 @@ public class User extends DateAudit {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "authorities")
-    private String authorities;
+    @Column(name = "roles")
+    private String roles;
 
 }
