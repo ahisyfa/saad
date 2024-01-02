@@ -14,33 +14,35 @@
         </div>
     </div>
     <div class="row">
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Full Name</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Place of Birth</th>
-                <th scope="col">Date of Birth</th>
-                <th scope="col">Registration</th>
-                <th scope="col">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="student, iterStat : ${students}">
-                <td th:text="*{student.id}">NIS</td>
-                <td th:text="*{student.fullName}">Full Name</td>
-                <td th:text="*{student.gender}">Male</td>
-                <td th:text="*{student.birthPlace}">Birth Date</td>
-                <td th:text="*{student.birthDate}">Birth Date</td>
-                <td th:text="*{student.registrationYear}">Birth Date</td>
-                <td>
-                    <a class="btn btn-primary btn-sm" th:href="@{/tuition/{studentId}(studentId=${student.id})}" role="button">Pay Tuition</a>
-                    <a class="btn btn-warning btn-sm" th:href="@{/student/edit/{studentId}(studentId=${student.id})}" role="button">Edit</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-sm">
+                <thead>
+                <tr>
+                    <th style="white-space:nowrap;" scope="col">#</th>
+                    <th style="white-space:nowrap;" scope="col">Full Name</th>
+                    <th style="white-space:nowrap;" scope="col">Gender</th>
+                    <th style="white-space:nowrap;" scope="col">Place of Birth</th>
+                    <th style="white-space:nowrap;" scope="col">Date of Birth</th>
+                    <th style="white-space:nowrap;" scope="col">Registration</th>
+                    <th style="white-space:nowrap;" scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student, iterStat : ${students}">
+                    <td th:text="*{student.id}">NIS</td>
+                    <td th:text="*{student.fullName}">Full Name</td>
+                    <td th:text="*{student.gender}">Male</td>
+                    <td th:text="*{student.birthPlace}">Birth Date</td>
+                    <td th:text="*{student.birthDate}">Birth Date</td>
+                    <td th:text="*{student.registrationYear}">Birth Date</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" th:href="@{/tuition/{studentId}(studentId=${student.id})}" role="button">Pay Tuition</a>
+                        <a class="btn btn-warning btn-sm" th:href="@{/student/edit/{studentId}(studentId=${student.id})}" role="button">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <!--End Content-->
